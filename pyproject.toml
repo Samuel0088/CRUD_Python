@@ -3,14 +3,13 @@ name = "bd-python"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "samuel0088",email = "samuelfreitas202020@gmail.com"}
+    {name = "samuel0088",email = "samuel.vieirafreitas@outlook.com"}
 ]
-readme = "README.md"
+
 requires-python = ">=3.12"
 dependencies = [
     "sqlalchemy (>=2.0.37,<3.0.0)"
 ]
-
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

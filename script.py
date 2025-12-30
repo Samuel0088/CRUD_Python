@@ -1,22 +1,17 @@
 import os
-from sqlalchemy import create_engine # permite criar o arquivo db
-from sqlalchemy.orm import declarative_base # permite criar uma classe
+from sqlalchemy import create_engine 
+from sqlalchemy.orm import declarative_base 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, String, Integer
-
-# configurando a engine do BD  
+ 
 engine = create_engine("sqlite:///database.db")
-
-# configurando a sessão
 Session = sessionmaker(engine)
-
-# criando a tabela
 Base = declarative_base()
 
 class Usuario(Base):
-    __tablename__ = 'usuarios' # nome da tabela
-    id = Column(Integer, primary_key=True) #primary key = não pode se repetir
-    nome = Column(String, nullable=False)#o nome não pode ser nulo ou seja vazio
+    __tablename__ = 'usuarios' 
+    id = Column(Integer, primary_key=True) 
+    nome = Column(String, nullable=False)
     tipo = Column(String, nullable=False)
 
 def insert_usuario(nome_usuario, tipo_usuario):
@@ -86,7 +81,7 @@ def delete_usuario(id_usuario):
 if __name__ == '__main__':
     os.system('cls')
     Base.metadata.create_all(engine)
-    #insert_usuario('Samuel', 'Administrador')
-    #select_usuarios("Samuel")
-    #update_nome_usuario(1, 'Maria')
+    insert_usuario('Samuel', 'Administrador')
+    select_usuarios("Samuel")
+    update_nome_usuario(1, 'Maria')
     delete_usuario(1)
